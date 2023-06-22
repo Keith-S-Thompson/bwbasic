@@ -6258,7 +6258,7 @@ bwb_CMDS (LineType * l)
   t = 0;
   for (n = 0; n < NUM_COMMANDS; n++)
   {
-    fprintf (My->SYSOUT->cfp, IntrinsicCommandTable[n].name);
+    fprintf (My->SYSOUT->cfp, "%s", IntrinsicCommandTable[n].name);
     if (t < 4)
     {
       fprintf (My->SYSOUT->cfp, "\t");
@@ -6657,32 +6657,32 @@ DumpAllCommandTableDefinitions (FILE * file)
 
     fprintf (file, "  ");
     CommandUniqueID (i, tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, ",  /* UniqueID */\n");
 
     fprintf (file, "  ");
     fprintf (file, "\"");
     ProcessEscapeChars (IntrinsicCommandTable[i].Syntax, tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, "\"");
     fprintf (file, ",  /* Syntax */\n");
 
     fprintf (file, "  ");
     fprintf (file, "\"");
     ProcessEscapeChars (IntrinsicCommandTable[i].Description, tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, "\"");
     fprintf (file, ",  /* Description */\n");
 
     fprintf (file, "  ");
     fprintf (file, "\"");
-    fprintf (file, IntrinsicCommandTable[i].name);
+    fprintf (file, "%s", IntrinsicCommandTable[i].name);
     fprintf (file, "\"");
     fprintf (file, ",  /* Name */\n");
 
     fprintf (file, "  ");
     CommandOptionVersion (i, tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, "  /* OptionVersionBitmask */\n");
 
     fprintf (file, "},\n");
@@ -6732,14 +6732,14 @@ DumpAllCommandSwitchStatement (FILE * file)
       fprintf (file, "   ");
       fprintf (file, "case ");
       CommandUniqueID (i, tbuf);
-      fprintf (file, tbuf);
+      fprintf (file, "%s", tbuf);
       fprintf (file, ":\n");
 
       fprintf (file, "   ");
       fprintf (file, "   ");
       fprintf (file, "r = ");
       CommandVector (i, tbuf);
-      fprintf (file, tbuf);
+      fprintf (file, "%s", tbuf);
       fprintf (file, "( l );\n");
 
       fprintf (file, "   ");
@@ -6959,13 +6959,13 @@ DumpAllCommandHtmlTable (FILE * file)
   {
     fprintf (file, "<tr>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].ID);
+    fprintf (file, "%s", bwb_vertable[j].ID);
     fprintf (file, "</td>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].Name);
+    fprintf (file, "%s", bwb_vertable[j].Name);
     fprintf (file, "</td>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].Description);
+    fprintf (file, "%s", bwb_vertable[j].Description);
     fprintf (file, "</td>");
     fprintf (file, "</tr>\n");
   }
@@ -6987,7 +6987,7 @@ DumpAllCommandHtmlTable (FILE * file)
   {
     fprintf (file, "<td>");
     fprintf (file, "<b>");
-    fprintf (file, bwb_vertable[j].ID);
+    fprintf (file, "%s", bwb_vertable[j].ID);
     fprintf (file, "</b>");
     fprintf (file, "</td>");
   }
@@ -7000,7 +7000,7 @@ DumpAllCommandHtmlTable (FILE * file)
   {
     fprintf (file, "<tr>");
     fprintf (file, "<td>");
-    fprintf (file, (char *) IntrinsicCommandTable[i].Syntax);
+    fprintf (file, "%s", IntrinsicCommandTable[i].Syntax);
     fprintf (file, "</td>");
 
     for (j = 0; j < NUM_VERSIONS; j++)
@@ -7108,7 +7108,7 @@ bwb_HELP (LineType * l)
           fprintf (My->SYSOUT->cfp,
                    "The following topics are a partial match:\n");
         }
-        fprintf (My->SYSOUT->cfp, IntrinsicCommandTable[n].name);
+        fprintf (My->SYSOUT->cfp, "%s", IntrinsicCommandTable[n].name);
         fprintf (My->SYSOUT->cfp, "\t");
         Found = TRUE;
       }
@@ -7123,7 +7123,7 @@ bwb_HELP (LineType * l)
           fprintf (My->SYSOUT->cfp,
                    "The following topics are a partial match:\n");
         }
-        fprintf (My->SYSOUT->cfp, IntrinsicFunctionTable[n].Name);
+        fprintf (My->SYSOUT->cfp, "%s", IntrinsicFunctionTable[n].Name);
         fprintf (My->SYSOUT->cfp, "\t");
         Found = TRUE;
       }
@@ -7694,7 +7694,7 @@ DumpAllFunctionSwitch (FILE * file)
 
     fprintf (file, "case ");
     IntrinsicFunctionUniqueID (&(IntrinsicFunctionTable[i]), tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, ":\n");
     fprintf (file, "    break;\n");
   }
@@ -7794,7 +7794,7 @@ DumpAllFuctionTableDefinitions (FILE * file)
     fprintf (file, "  ");
     fprintf (file, "\"");
     ProcessEscapeChars (f->Description, tbuf);
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, "\"");
     fprintf (file, ",  /* Description */\n");
     fprintf (file, "  \"%s\", /* Name */\n", f->Name);
@@ -7855,7 +7855,7 @@ DumpAllFuctionTableDefinitions (FILE * file)
         }
       }
       bwb_strcat (tbuf, ", /* ParameterTypes */\n");
-      fprintf (file, tbuf);
+      fprintf (file, "%s", tbuf);
 
 
       bwb_strcpy (tbuf, "  ");
@@ -7874,7 +7874,7 @@ DumpAllFuctionTableDefinitions (FILE * file)
         /* Conversion may lose significant digits */
       }
       bwb_strcat (tbuf, ", /* ParameterTests */\n");
-      fprintf (file, tbuf);
+      fprintf (file, "%s", tbuf);
     }
     bwb_strcpy (tbuf, "  ");
     j = 0;
@@ -7891,7 +7891,7 @@ DumpAllFuctionTableDefinitions (FILE * file)
       }
     }
     bwb_strcat (tbuf, " /* OptionVersionBitmask */\n");
-    fprintf (file, tbuf);
+    fprintf (file, "%s", tbuf);
     fprintf (file, "},\n");
   }
   fprintf (file, "};\n");
@@ -7963,7 +7963,7 @@ DumpOneFunctionSyntax (FILE * file, int IsXref, int n)
         /* Conversion may lose significant digits */
         NumVar++;
       }
-      fprintf (file, tbuf);
+      fprintf (file, "%s", tbuf);
       fprintf (file, "\n");
       ParameterTypes = ParameterTypes >> 1;
       ParameterTests = ParameterTests >> 4;
@@ -8069,13 +8069,13 @@ DumpAllFunctionHtmlTable (FILE * file)
   {
     fprintf (file, "<tr>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].ID);
+    fprintf (file, "%s", bwb_vertable[j].ID);
     fprintf (file, "</td>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].Name);
+    fprintf (file, "%s", bwb_vertable[j].Name);
     fprintf (file, "</td>");
     fprintf (file, "<td>");
-    fprintf (file, bwb_vertable[j].Description);
+    fprintf (file, "%s", bwb_vertable[j].Description);
     fprintf (file, "</td>");
     fprintf (file, "</tr>\n");
   }
@@ -8097,7 +8097,7 @@ DumpAllFunctionHtmlTable (FILE * file)
   {
     fprintf (file, "<td>");
     fprintf (file, "<b>");
-    fprintf (file, bwb_vertable[j].ID);
+    fprintf (file, "%s", bwb_vertable[j].ID);
     fprintf (file, "</b>");
     fprintf (file, "</td>");
   }
@@ -8110,7 +8110,7 @@ DumpAllFunctionHtmlTable (FILE * file)
   {
     fprintf (file, "<tr>");
     fprintf (file, "<td>");
-    fprintf (file, (char *) IntrinsicFunctionTable[i].Syntax);
+    fprintf (file, "%s", IntrinsicFunctionTable[i].Syntax);
     fprintf (file, "</td>");
 
     for (j = 0; j < NUM_VERSIONS; j++)
@@ -8161,7 +8161,7 @@ bwb_FNCS (LineType * l)
   t = 0;
   for (n = 0; n < NUM_FUNCTIONS; n++)
   {
-    fprintf (My->SYSOUT->cfp, IntrinsicFunctionTable[n].Name);
+    fprintf (My->SYSOUT->cfp, "%s", IntrinsicFunctionTable[n].Name);
     if (t < 4)
     {
       fprintf (My->SYSOUT->cfp, "\t");
