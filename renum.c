@@ -6,6 +6,7 @@
 /*-------------------------------------------------------------------*/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_LINE_LENGTH  255
@@ -20,9 +21,7 @@ int f2, l2, n, x;
 int sidx[MAX_LINE_COUNT][2];
 char rstr[MAX_LINE_LENGTH];
 
-main(argc, argv)
-   int argc;
-   char *argv[];
+int main(int argc, char *argv[])
 {
    int f, d, s, p, s1, t, l, g;
    int c, f1, c1, i, f8, r, l1, l3;
@@ -490,7 +489,7 @@ main(argc, argv)
    fclose(fdin);
    fclose(fdout);
 #if !defined(__MVS__) && !defined(__CMS__)
-   sprintf(tempstr, "mv editfl %s\0", f9str);
+   sprintf(tempstr, "mv editfl %s", f9str);
    system(tempstr);
 #endif
    return (0);
@@ -540,7 +539,7 @@ char *midstr2(astr, start, len)
    strcpy(tempstr, astr);
    startptr = (char *)((long)(tempstr) + start - 1);
    endptr = (char *)((long)(tempstr) + start + len - 1);
-   strcpy(endptr, "\0");
+   strcpy(endptr, "");
 
    return startptr;
 }
@@ -561,7 +560,7 @@ void binary_search(void)
 
       if (sidx[m][0] == n)
       {
-         sprintf(rstr, "%d\0", sidx[m][1]);
+         sprintf(rstr, "%d", sidx[m][1]);
          x = 0;
          return;
       }
