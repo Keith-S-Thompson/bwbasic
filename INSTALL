@@ -6,10 +6,10 @@ Some Notes on Installation of the Bywater BASIC Interpreter:
    To use the default configuration (which is reasonable for most situations):
 
    On Unix using GCC:
-       gcc -o bwbasic -lm -ansi -pedantic -Wall -Werror bw*.c
-   
+       gcc -o bwbasic -std=c11 -D_XOPEN_SOURCE -pedantic -Wall -Werror bw*.c -lm
+
    On Android CCTools using GCC:
-       gcc -o bwbasic -lm -ansi -pedantic -Wall -Werror bw*.c
+       gcc -o bwbasic -std=c11 -D_XOPEN_SOURCE -pedantic -Wall -Werror bw*.c -lm
       
    On MSDOS using Borland C++ 3.1:
       bcc.exe -mh -eBWBASIC.EXE -D_DOS=1 -Y bw*.c
