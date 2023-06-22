@@ -4,6 +4,13 @@ The Bywater BASIC Interpreter (bwBASIC) implements a large superset of the ANSI 
 
 BWBASIC is an original creation of Ted A. Campbell, who stopped working on it in 1993. Since then it has received contributions from other programmers: Jon B. Volkoff, Paul Edwards, Howard S. Wulf, Ken Martin and Jon Foster.
 
+If you're reading this paragraph, you have a version updated by Keith Thompson with the following changes:
+* Don't print an extraneous newline before exiting
+* Fix compilation errors and (most) warning
+* Update installation instructions for Unix-like systems
+These updates are in my repo <https://github.com/Keith-S-Thompson/bwbasic>, branch "3.20+fixes".
+I have not (yet) merged these changes into the "main" branch.
+
 ## Usage
 
 Inside program, type:
