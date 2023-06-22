@@ -2042,8 +2042,6 @@ bwb_system (LineType * l)
   assert (My->SYSOUT != NULL);
   assert (My->SYSOUT->cfp != NULL);
 
-  fprintf (My->SYSOUT->cfp, "\n");
-  fflush (My->SYSOUT->cfp);
   bwx_terminate ();
   return (l);                        /* never reached */
 }
