@@ -7,6 +7,7 @@ Some Notes on Installation of the Bywater BASIC Interpreter:
 
    On Unix using GCC:
        gcc -o bwbasic -std=c11 -D_XOPEN_SOURCE -pedantic -Wall -Werror bw*.c -lm
+       (or use the usual "./configure && make && make install" sequence)
 
    On Android CCTools using GCC:
        gcc -o bwbasic -std=c11 -D_XOPEN_SOURCE -pedantic -Wall -Werror bw*.c -lm
